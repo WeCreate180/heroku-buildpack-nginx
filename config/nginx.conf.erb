@@ -40,10 +40,8 @@ http {
 			proxy_set_header Host $http_host;
 			proxy_redirect off;
 			proxy_pass http://app_server;
-			location @app {
-				include uwsgi_params;
-				uwsgi_pass unix:/tmp/nginx.socket;
-     			}
+			include uwsgi_params;
+			uwsgi_pass unix:/tmp/nginx.socket;
 		}
 	}
 }
